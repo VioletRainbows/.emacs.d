@@ -55,7 +55,8 @@
 ;; "y or n" instead of "yes or no"
 (fset 'yes-or-no-p 'y-or-n-p)
 
-
+;; Highlight matching brackets
+(show-paren-mode 1)
 
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
