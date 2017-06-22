@@ -52,6 +52,11 @@
 ;; Don't make backup files. That's what git is for.
 (setq make-backup-files nil)
 
+;; "y or n" instead of "yes or no"
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
