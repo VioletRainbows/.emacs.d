@@ -43,6 +43,12 @@
 ;; Don't show the startup screen.
 (setq inhibit-startup-message t)
 
+;; Don't show all those bars
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(fringe-mode (cons 0 nil))
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
