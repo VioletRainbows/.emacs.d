@@ -3,4 +3,7 @@ CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 compile:
 	emacs -Q --batch --eval '(byte-recompile-directory "$(CURRENT_DIR)" 0)'
 
-.PHONY: compile
+clean:
+	find . -name "*.elc" -type f -delete
+
+.PHONY: compile clean
