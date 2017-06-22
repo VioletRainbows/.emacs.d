@@ -49,6 +49,9 @@
 (scroll-bar-mode -1)
 (fringe-mode (cons 0 nil))
 
+;; Don't make backup files. That's what git is for.
+(setq make-backup-files nil)
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
