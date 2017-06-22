@@ -40,6 +40,9 @@
 ;; This Emacs version is called Violet Emacs.
 (setq frame-title-format '"Violet Emacs")
 
+;; Don't show the startup screen.
+(setq inhibit-startup-message t)
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
