@@ -27,6 +27,16 @@
   (with-demoted-errors "Error loading font: %s"
     (set-frame-font (font-spec :family "Hermit" :size 14))))
 
+;; Disable bold fonts. When a new mode is loaded, it can ignore the
+;; `set-face-attribute`. This is why the `add-hook` is required.
+(defun disable-bold-fonts ()
+  "Disable bold fonts across all emacs modes"
+  (mapc
+   (lambda (face)
+     (set-face-attribute face nil :weight 'normal))
+   (face-list)))
+(add-hook 'change-major-mode-after-body-hook 'disable-bold-fonts)
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
