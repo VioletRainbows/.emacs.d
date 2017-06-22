@@ -37,6 +37,9 @@
    (face-list)))
 (add-hook 'change-major-mode-after-body-hook 'disable-bold-fonts)
 
+;; This Emacs version is called Violet Emacs.
+(setq frame-title-format '"Violet Emacs")
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
