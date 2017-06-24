@@ -58,6 +58,10 @@
 ;; Highlight matching brackets
 (show-paren-mode 1)
 
+;; Set minumum width to 82 so that MIT license header isn't multi-line
+(when (display-graphic-p)
+  (set-frame-size (selected-frame) 82 35))
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
