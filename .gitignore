@@ -10,3 +10,6 @@ auto-save-list/
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Packages files
+elpa/

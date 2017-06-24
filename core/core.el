@@ -62,6 +62,8 @@
 (when (display-graphic-p)
   (set-frame-size (selected-frame) 82 35))
 
+(require 'core-packages (concat user-emacs-directory "core/core-packages"))
+
 ;; The core feature doesn't do much right now, but it helps with
 ;; loading the latest version of a file, i.e., `.el` being newer then
 ;; `.elc`.
