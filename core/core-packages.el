@@ -37,4 +37,22 @@
   (progn
     (load-theme 'sanityinc-tomorrow-day t)))
 
+;; Flycheck
+(use-package flycheck
+  :ensure t
+  :init
+  (progn
+    (add-hook 'after-init-hook #'global-flycheck-mode)
+    ;; Don't check emacs comments errors
+    (with-eval-after-load 'flycheck
+      (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc)))))
+
+;; Show fkycheck errors under the cursor
+(use-package flycheck-pos-tip
+  :ensure t
+  :init
+  (progn
+    (with-eval-after-load 'flycheck
+      (flycheck-pos-tip-mode))))
+    
 (provide 'core-packages)
