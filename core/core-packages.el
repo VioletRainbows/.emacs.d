@@ -34,8 +34,7 @@
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :init
-  (progn
-    (load-theme 'sanityinc-tomorrow-day t)))
+  (load-theme 'sanityinc-tomorrow-day t))
 
 ;; Flycheck
 (use-package flycheck
@@ -51,8 +50,60 @@
 (use-package flycheck-pos-tip
   :ensure t
   :init
+  (with-eval-after-load 'flycheck
+    (flycheck-pos-tip-mode)))
+
+(use-package magit
+  :ensure t)
+
+(use-package neotree
+  :ensure t)
+
+(use-package company
+  :ensure t
+  :init
+  (global-company-mode))
+
+;; Go configuration
+(use-package go-mode
+  :ensure t
+  :bind (("M-." . godef-jump)
+	 ("M-*" . pop-tag-mark))
+  :init
   (progn
-    (with-eval-after-load 'flycheck
-      (flycheck-pos-tip-mode))))
-    
+    (setq gofmt-command "goimports")
+    (add-to-list 'exec-path "/home/mia/go/bin")
+    (add-hook 'before-save-hook 'gofmt-before-save))
+  :config
+  (setq tab-width 4))
+
+(use-package company-go
+  :ensure t
+  :init
+  (with-eval-after-load 'company
+    (add-to-list 'company-backends 'company-go)))
+
+(use-package go-guru
+  :ensure t
+  :init
+  (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+
+(use-package go-rename
+  :ensure t)
+
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.yml$")
+
+(use-package terraform-mode
+  :ensure t
+  :mode "\\.tf$"
+  :init
+  (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode))
+
+
+(use-package dockerfile-mode
+  :ensure t
+  :mode "Dockerfile\\'")
+
 (provide 'core-packages)
