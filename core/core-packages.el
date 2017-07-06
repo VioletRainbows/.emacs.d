@@ -67,14 +67,18 @@
 ;; Go configuration
 (use-package go-mode
   :ensure t
-  :bind (("M-." . godef-jump))
   :init
   (progn
     (setq gofmt-command "goimports")
     (add-to-list 'exec-path "/home/mia/go/bin")
-    (add-hook 'before-save-hook 'gofmt-before-save))
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    (setenv "GOPATH" (expand-file-name "~/go"))
+    (setenv "PATH" (concat (getenv "PATH") ":" (expand-file-name "~/go/bin")))
+    (setq exec-path (append exec-path (list (expand-file-name "~/go/bin")))))
   :config
-  (add-hook 'go-mode-hook (lambda () (setq tab-width 4))))
+  (add-hook 'go-mode-hook (lambda () (progn
+				       (setq tab-width 4)
+				       (local-set-key (kbd "M-.") 'godef-jump)))))
 
 (use-package company-go
   :ensure t
