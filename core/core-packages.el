@@ -75,7 +75,7 @@
     (add-to-list 'exec-path "/home/mia/go/bin")
     (add-hook 'before-save-hook 'gofmt-before-save))
   :config
-  (setq tab-width 4))
+  (add-hook 'go-mode-hook (lambda () (setq tab-width 4))))
 
 (use-package company-go
   :ensure t
