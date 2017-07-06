@@ -67,8 +67,7 @@
 ;; Go configuration
 (use-package go-mode
   :ensure t
-  :bind (("M-." . godef-jump)
-	 ("M-*" . pop-tag-mark))
+  :bind (("M-." . godef-jump))
   :init
   (progn
     (setq gofmt-command "goimports")
