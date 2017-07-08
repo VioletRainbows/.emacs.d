@@ -65,6 +65,11 @@
 (scroll-bar-mode -1)
 (fringe-mode (cons 0 nil))
 
+;; scroll four lines at a time (less "jumpy" than defaults)
+(setq mouse-wheel-scroll-amount '(4 ((shift) . 4))) ;; four lines at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
 ;; Don't make backup files. That's what git is for.
 (setq make-backup-files nil)
 
