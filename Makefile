@@ -22,10 +22,10 @@
 
 CURRENT_DIR:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
-compile:
+compile: clean
 	emacs -Q --batch --eval '(byte-compile-file "$(CURRENT_DIR)/init.el")'
 
 clean:
-	find . -name "*.elc" -type f -delete
+	rm $(CURRENT_DIR)/init.elc
 
 .PHONY: compile clean

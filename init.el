@@ -20,10 +20,6 @@
 ;; OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 ;; SOFTWARE.
 
-;; Do I still need it?
-;; (setq package--init-file-ensured t
-;;       package-enable-at-startup nil)
-
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -86,7 +82,7 @@
 (use-package color-theme-sanityinc-tomorrow
   :ensure t
   :init
-  (load-theme 'sanityinc-tomorrow-day t))
+  (load-theme 'sanityinc-tomorrow-night t))
 
 ;; Flycheck
 (use-package flycheck
@@ -161,17 +157,3 @@
   :mode "Dockerfile\\'")
 
 (provide 'core-packages)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (dockerfile-mode terraform-mode yaml-mode go-rename go-guru company-go go-mode company neotree magit flycheck-pos-tip flycheck color-theme-sanityinc-tomorrow use-package))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
