@@ -89,6 +89,12 @@
   :init
   (load-theme 'sanityinc-tomorrow-night t))
 
+;; Powerline
+(use-package powerline
+  :ensure t
+  :init
+  (powerline-default-theme))
+
 ;; Flycheck
 (use-package flycheck
   :ensure t
@@ -162,3 +168,17 @@
   :mode "Dockerfile\\'")
 
 (provide 'core-packages)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (powerline yaml-mode use-package terraform-mode neotree magit go-rename go-guru flycheck-pos-tip dockerfile-mode company-go color-theme-sanityinc-tomorrow))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
