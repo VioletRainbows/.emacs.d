@@ -26,6 +26,6 @@ compile: clean
 	emacs -Q --batch --eval '(byte-compile-file "$(CURRENT_DIR)/init.el")'
 
 clean:
-	rm $(CURRENT_DIR)/init.elc
+	rm -f $(CURRENT_DIR)/init.elc
 
 .PHONY: compile clean
