@@ -65,6 +65,11 @@
 (scroll-bar-mode -1)
 (fringe-mode (cons 0 nil))
 
+;; Why are emacs tabs (or space) not ok by default is beyond me.
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq indent-line-function 'insert-tab)
+
 ;; scroll four lines at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(4 ((shift) . 4))) ;; four lines at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
