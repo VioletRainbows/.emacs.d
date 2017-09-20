@@ -70,6 +70,12 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
+;; Use linux coding style
+(require 'cc-mode)
+(setq c-default-style "linux")
+(setq-default c-basic-offset 8
+              tab-width 8)
+
 ;; scroll four lines at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(4 ((shift) . 4))) ;; four lines at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
@@ -141,8 +147,8 @@
     (setq exec-path (append exec-path (list (expand-file-name "~/go/bin")))))
   :config
   (add-hook 'go-mode-hook (lambda () (progn
-				       (setq tab-width 4)
-				       (local-set-key (kbd "M-.") 'godef-jump)))))
+                                       (setq tab-width 4)
+                                       (local-set-key (kbd "M-.") 'godef-jump)))))
 
 (use-package company-go
   :ensure t
