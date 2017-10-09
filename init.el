@@ -178,7 +178,38 @@
   :ensure t
   :mode "Dockerfile\\'")
 
+(use-package rust-mode
+  :ensure t
+  :mode "\\.rs\\'"
+  :config (setq rust-format-on-save t))
+
+;; Run cargo commands in rust buffers, e.g. C-c C-c C-r for cargo-run
+(use-package cargo
+  :ensure t
+  :init
+  (add-hook 'rust-mode-hook 'cargo-minor-mode)
+  (add-hook 'toml-mode-hook 'cargo-minor-mode))
+
+(use-package racer
+  :ensure t
+  :init
+  (add-hook 'rust-mode-hook #'racer-mode)
+  (add-hook 'racer-mode-hook #'eldoc-mode)
+  (add-hook 'racer-mode-hook #'company-mode)
+  :config
+  (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common))
+
+;; Doesn't work, json-read-error
+(use-package flycheck-rust
+  :ensure t
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+
+(use-package toml-mode
+  :ensure t)
+
 (provide 'core-packages)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -186,7 +217,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (powerline yaml-mode use-package terraform-mode neotree magit go-rename go-guru flycheck-pos-tip dockerfile-mode company-go color-theme-sanityinc-tomorrow))))
+    (toml-mode powerline yaml-mode use-package terraform-mode neotree magit go-rename go-guru flycheck-pos-tip dockerfile-mode company-go color-theme-sanityinc-tomorrow))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
