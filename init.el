@@ -181,7 +181,9 @@
 (use-package rust-mode
   :ensure t
   :mode "\\.rs\\'"
-  :config (setq rust-format-on-save t))
+  ;; Not running rustfmt on save
+  ;; See https://github.com/rust-lang-nursery/rustfmt/issues/2095
+  :config (setq rust-format-on-save nil))
 
 ;; Run cargo commands in rust buffers, e.g. C-c C-c C-r for cargo-run
 (use-package cargo
