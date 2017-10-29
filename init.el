@@ -66,15 +66,16 @@
 (fringe-mode (cons 0 nil))
 
 ;; Why are emacs tabs (or space) not ok by default is beyond me.
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq indent-line-function 'insert-tab)
-
 ;; Use linux coding style
 (require 'cc-mode)
 (setq c-default-style "linux")
-(setq-default c-basic-offset 8
-              tab-width 8)
+(setq-default c-basic-offset 8       ; Make all tab-spaces to 4 spaces
+              tab-width 8)           ; Make all tabs to 4 spaces
+(setq c-tab-always-indent nil)       ; Modify default c-mode behaviour
+(setq-default indent-tabs-mode nil)  ; Never use tabs
+(add-hook 'c-mode-hook
+          '(lambda()
+             (setq indent-tabs-mode t))) ; Except for c-mode. Use tabs.
 
 ;; scroll four lines at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(4 ((shift) . 4))) ;; four lines at a time
